@@ -1,11 +1,13 @@
 /**
- * main.js 11/13/2014 //(c) General Electric Company | GE Confidential.
+ * main.js 11/13/(c) 2014.
  * 
- * Meaning.
+ * Sample loader.
  */
 require([ './config' ], function() {
 
 	console.info('main > ', arguments);
 	console.log('main > ', arguments);
+
+	require([ 'views/PopoverView' ]);
 
 });

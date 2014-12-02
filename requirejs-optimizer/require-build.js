@@ -1,5 +1,5 @@
 /**
- * require-build.js 11/13/2014 //(c) General Electric Company | GE Confidential.
+ * require-build.js 11/13/(c) 2014.
  * 
  * Sample build profile.
  */
@@ -7,6 +7,10 @@
 	appDir : '${basedir}/src/main/webclient',
 	baseUrl : 'sources',
 	paths : {
+		underscore : 'empty:',
+		backbone : 'empty:',
+		jquery : 'empty:',
+
 		views : 'views'
 	},
 	dir : '${basedir}/src/main/webapp/clientapp',
@@ -14,10 +18,21 @@
 		name : 'config'
 	}, {
 		name : 'main',
+		include : [ 'views/PopoverView' ],
 		exclude : [ 'config' ]
 	} ],
 
-	skipDirOptimize : true,
+	fileExclusionRegExp : /^(libs|(r|buildconfig|min)\.js)$/,
+
+	// allowSourceOverwrites : false,
+	// keepBuildDir : true,
+	// skipDirOptimize : true,
+	preserveLicenseComments : true,
+	// findNestedDependencies : true,
+
+	uglify : {
+		max_line_length : 1000
+	},
 
 	uglify2 : {
 		compress : {
@@ -29,4 +44,5 @@
 // // return contents;
 // return contents.replace(/console.log(.*);/g, ';');
 // }
+
 })
